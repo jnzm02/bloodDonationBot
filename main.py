@@ -1,6 +1,7 @@
 import messages
 import telebot
 import keyboard
+import time
 from decouple import config
 
 API_KEY = config('API_KEY')
@@ -12,16 +13,25 @@ bot = telebot.TeleBot(API_KEY)
 @bot.callback_query_handler(func=lambda call: True)
 def callback_query(call):
     data = call.data
+    last_message_id = call.message.message_id
     if data == 'Fail1':
+        bot.edit_message_reply_markup(call.from_user.id, message_id=last_message_id, reply_markup=None)
+        time.sleep(0.5)
         bot.send_message(call.from_user.id, messages.fail_question1())
 
     if data == 'go_question2':
+        bot.edit_message_reply_markup(call.from_user.id, message_id=last_message_id, reply_markup=None)
+        time.sleep(0.5)
         question2(call.from_user)
 
     if data == 'Fail2':
+        bot.edit_message_reply_markup(call.from_user.id, message_id=last_message_id, reply_markup=None)
+        time.sleep(0.5)
         bot.send_message(call.from_user.id, messages.fail_question2())
 
     if data == 'success':
+        bot.edit_message_reply_markup(call.from_user.id, message_id=last_message_id, reply_markup=None)
+        time.sleep(0.5)
         success(call.from_user)
 
 
