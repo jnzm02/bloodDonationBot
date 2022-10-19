@@ -16,22 +16,22 @@ def callback_query(call):
     last_message_id = call.message.message_id
     if data == 'Fail1':
         bot.edit_message_reply_markup(call.from_user.id, message_id=last_message_id, reply_markup=None)
-        time.sleep(0.5)
+        # time.sleep(0.5)
         bot.send_message(call.from_user.id, messages.fail_question1())
 
     if data == 'go_question2':
         bot.edit_message_reply_markup(call.from_user.id, message_id=last_message_id, reply_markup=None)
-        time.sleep(0.5)
+        # time.sleep(0.5)
         question2(call.from_user)
 
     if data == 'Fail2':
         bot.edit_message_reply_markup(call.from_user.id, message_id=last_message_id, reply_markup=None)
-        time.sleep(0.5)
+        # time.sleep(0.5)
         bot.send_message(call.from_user.id, messages.fail_question2())
 
     if data == 'success':
         bot.edit_message_reply_markup(call.from_user.id, message_id=last_message_id, reply_markup=None)
-        time.sleep(0.5)
+        # time.sleep(0.5)
         success(call.from_user)
 
 
